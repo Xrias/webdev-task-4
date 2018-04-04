@@ -29,13 +29,6 @@ sandwichButton.onclick = function () {
     body.style.overflow = 'hidden';
 };
 
-// eslint-disable-next-line no-undef
-// var hammer = new Hammer(body, { preventDefault: true });
-// hammer.on('swipeleft', () => {
-//    menu.style.display = 'block';
-//    exitButton.style.display = 'block';
-// });
-
 const souvenirsRatings = document.getElementsByClassName('souvenirs_item_info_rating');
 for (let i = 0; i < souvenirsRatings.length; i++) {
     if (Number(souvenirsRatings[i].innerHTML) > 4) {
@@ -58,7 +51,7 @@ body.ontouchend = function (event) {
 };
 
 function handleGesure() {
-    if (touchendX < touchstartX) {
+    if (touchendX < touchstartX && getComputedStyle(menu).display === 'none') {
         menu.style.display = 'block';
         exitButton.style.display = 'block';
     }
